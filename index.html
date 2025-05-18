@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slormancer-Dark Slayer - Epic Action RPG Game | Slormancer</title>
+    <meta name="description" content="Play Slormancer-Dark Slayer online - An epic action RPG where you become the legendary Dark Slayer. Fight hordes of enemies and conquer the darkness.">
+    <link rel="canonical" href="https://slormancer.com/">
+    <style>
+        /* 全局重置样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 基础样式设置 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #121212;
+            background-image: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+        }
+
+        /* 容器样式 */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e94560;
+        }
+
+        /* 英雄区域样式 */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            background-image: url('https://via.placeholder.com/1600x900/1a1a2e/e94560?text=Slormancer-Dark+Slayer');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* 标题样式 */
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 30px 0 15px;
+            color: #e94560;
+            border-left: 5px solid #e94560;
+            padding-left: 15px;
+        }
+
+        /* 游戏简介样式 */
+        .game-intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 游戏框架样式 */
+        .game-frame-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            margin: 30px 0;
+            border: 3px solid #e94560;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .game-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 游戏信息样式 */
+        .game-info {
+            background-color: rgba(22, 33, 62, 0.7);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 特性列表样式 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .feature {
+            flex-basis: calc(33.333% - 20px);
+            background-color: rgba(15, 52, 96, 0.7);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            border-left: 3px solid #e94560;
+        }
+
+        /* 玩家评价样式 */
+        .testimonials {
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            background-color: rgba(22, 33, 62, 0.7);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: "\201C";
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: rgba(233, 69, 96, 0.3);
+        }
+
+        .player-name {
+            font-weight: bold;
+            color: #e94560;
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        /* FAQ样式 */
+        .faq {
+            margin: 40px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            background-color: rgba(22, 33, 62, 0.7);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            background-color: rgba(15, 52, 96, 0.9);
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(22, 33, 62, 0.9);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* 按钮样式 */
+        .cta-button {
+            display: inline-block;
+            background-color: #e94560;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-top: 2px solid #e94560;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex-basis: calc(33.333% - 30px);
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0a0a0;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #e94560;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(233, 69, 96, 0.3);
+            padding-top: 20px;
+            color: #a0a0a0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .feature {
+                flex-basis: 100%;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            
+            .footer-section {
+                flex-basis: 100%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Slormancer</a>
+                <ul class="nav-links">
+                    <li><a href="#game">Play Now</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Slormancer-Dark Slayer</h1>
+            <p class="game-intro">Embark on an epic journey as the legendary Dark Slayer, fighting through hordes of enemies in this action-packed RPG adventure. Master powerful abilities, defeat challenging bosses, and become the hero the realm needs.</p>
+            <a href="#game" class="cta-button">Play Now</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="game" class="game-frame-container">
+            <iframe class="game-frame" src="https://www.crazygames.com/embed/immortal-dark-slayer" frameborder="0" allow="gamepad *;"></iframe>
+        </section>
+
+        <section class="game-info">
+            <h2>About Slormancer-Dark Slayer</h2>
+            <p>Slormancer-Dark Slayer is an intense action RPG that puts you in the role of a legendary warrior chosen to save the realm from darkness. With fluid combat mechanics, stunning visuals, and an immersive storyline, this game offers hours of engaging gameplay for fans of the action RPG genre.</p>
+            
+            <p>As the Dark Slayer, you'll wield powerful weapons, master arcane abilities, and face increasingly challenging foes as you progress through a world shrouded in mystery and danger. Will you rise to become the hero the world needs, or fall like so many before you?</p>
+        </section>
+
+        <section id="features">
+            <h2>Game Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Epic Combat</h3>
+                    <p>Experience fluid, responsive combat with a variety of weapons and combat styles to master. Chain devastating combos and unleash powerful special abilities.</p>
+                </div>
+                <div class="feature">
+                    <h3>Character Progression</h3>
+                    <p>Level up your Dark Slayer, unlock new abilities, and customize your playstyle with an extensive skill tree and equipment system.</p>
+                </div>
+                <div class="feature">
+                    <h3>Challenging Bosses</h3>
+                    <p>Test your skills against formidable bosses with unique attack patterns and abilities. Study their movements and exploit their weaknesses to emerge victorious.</p>
+                </div>
+                <div class="feature">
+                    <h3>Immersive World</h3>
+                    <p>Explore a dark fantasy world filled with secrets, treasures, and dangers. Discover hidden areas and uncover the mysteries of this ancient realm.</p>
+                </div>
+                <div class="feature">
+                    <h3>Engaging Story</h3>
+                    <p>Uncover the mysteries of the realm as you progress through an epic narrative filled with memorable characters and unexpected twists.</p>
+                </div>
+                <div class="feature">
+                    <h3>Free to Play</h3>
+                    <p>Jump into the action immediately with no download required - play directly in your browser and experience the full game without any paywalls.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Player Reviews</h2>
+            <div class="testimonial">
+                <p>Slormancer-Dark Slayer is hands down the best browser-based action RPG I've played. The combat feels responsive and satisfying, and the progression system keeps me coming back for more!</p>
+                <p class="player-name">- Michael K.</p>
+            </div>
+            <div class="testimonial">
+                <p>I was skeptical about playing an action game in my browser, but Slormancer-Dark Slayer blew me away. The graphics are impressive, and the boss fights are genuinely challenging. Highly recommended!</p>
+                <p class="player-name">- Sarah J.</p>
+            </div>
+            <div class="testimonial">
+                <p>As a longtime fan of dark fantasy games, I found Slormancer-Dark Slayer to be a perfect blend of accessible gameplay and deep mechanics. The story is surprisingly engaging for a browser game.</p>
+                <p class="player-name">- David R.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">Do I need to download anything to play?</div>
+                <div class="faq-answer">
+                    <p>No, Slormancer-Dark Slayer is a browser-based game that runs directly in your web browser. There's no need to download or install anything. Simply visit our website and start playing immediately.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is the game free to play?</div>
+                <div class="faq-answer">
+                    <p>Yes, Slormancer-Dark Slayer is completely free to play. You can enjoy the full game experience without any paywalls or mandatory purchases. We may offer optional cosmetic items in the future, but they will never affect gameplay.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What are the system requirements?</div>
+                <div class="faq-answer">
+                    <p>Since Slormancer-Dark Slayer runs in your browser, the requirements are minimal. You'll need a modern web browser (Chrome, Firefox, Safari, or Edge) and a stable internet connection. The game is optimized to run smoothly on most devices, including older computers.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I play on mobile devices?</div>
+                <div class="faq-answer">
+                    <p>Yes, Slormancer-Dark Slayer is fully responsive and optimized for mobile play. You can enjoy the game on smartphones and tablets with touch controls, though we recommend playing on a larger screen for the best experience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is there multiplayer or co-op gameplay?</div>
+                <div class="faq-answer">
+                    <p>Currently, Slormancer-Dark Slayer is a single-player experience focused on delivering an engaging story and challenging combat. We're exploring multiplayer features for future updates, including co-op missions and PvP arenas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Begin Your Journey?</h2>
+            <p>The realm needs a hero. The Dark Slayer awaits. Will you answer the call?</p>
+            <a href="#game" class="cta-button">Play Now</a>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Slormancer</h3>
+                    <p>Slormancer.com is dedicated to bringing you the best browser-based gaming experience with our flagship title, Slormancer-Dark Slayer.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#game">Play Game</a>
+                    <a href="#features">Features</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>For support or business inquiries:</p>
+                    <p>Email: liujialxj2@126.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Slormancer.com - All rights reserved. Slormancer-Dark Slayer is owned and operated by Jacky.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动到游戏区域的函数
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 初始化FAQ功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // 关闭其他所有FAQ项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // 切换当前项的状态
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // 设置导航链接点击事件
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    scrollToElement(targetId);
+                });
+            });
+            
+            // 设置CTA按钮点击事件
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    scrollToElement(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
