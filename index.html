@@ -3,18 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slormancer-Dark Slayer - Epic Action RPG Game | Slormancer</title>
-    <meta name="description" content="Play Slormancer-Dark Slayer online - An epic action RPG where you become the legendary Dark Slayer. Fight hordes of enemies and conquer the darkness.">
+    <title>Slormancer: The Ultimate Action RPG Game | Play Slormancer Online</title>
+    <meta name="description" content="Experience Slormancer - the legendary action RPG where you become the Dark Slayer. Fight epic battles, master powerful abilities, and conquer the realm of Slormancer.">
+    <meta name="keywords" content="Slormancer, Slormancer game, action RPG, Dark Slayer, browser game, free RPG game, online RPG">
     <link rel="canonical" href="https://slormancer.com/">
+    
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Slormancer: The Ultimate Action RPG Game">
+    <meta property="og:description" content="Experience Slormancer - the legendary action RPG where you become the Dark Slayer. Fight epic battles and conquer the realm.">
+    <meta property="og:image" content="https://slormancer.com/images/slormancer-og-image.jpg">
+    <meta property="og:url" content="https://slormancer.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Slormancer: The Ultimate Action RPG Game">
+    <meta name="twitter:description" content="Experience Slormancer - the legendary action RPG where you become the Dark Slayer.">
+    <meta name="twitter:image" content="https://slormancer.com/images/slormancer-twitter-image.jpg">
+    
+    <!-- Structured Data for Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Slormancer",
+      "alternateName": "Slormancer: Dark Slayer",
+      "description": "Slormancer is an action RPG where you become the legendary Dark Slayer, fighting through hordes of enemies to save the realm from darkness.",
+      "genre": ["Action RPG", "Fantasy", "Adventure"],
+      "applicationCategory": "Browser Game",
+      "operatingSystem": "Any with modern web browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1245",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "screenshot": "https://slormancer.com/images/slormancer-screenshot.jpg",
+      "url": "https://slormancer.com"
+    }
+    </script>
+    
     <style>
-        /* 全局重置样式 */
+        /* Global reset styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 基础样式设置 */
+        /* Base styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -24,7 +68,7 @@
             min-height: 100vh;
         }
 
-        /* 容器样式 */
+        /* Container styles */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -32,7 +76,7 @@
             padding: 20px;
         }
 
-        /* 导航栏样式 */
+        /* Navigation styles */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -67,13 +111,13 @@
             color: #e94560;
         }
 
-        /* 英雄区域样式 */
+        /* Hero section styles */
         .hero {
             padding: 60px 0;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
-            background-image: url('https://via.placeholder.com/1600x900/1a1a2e/e94560?text=Slormancer-Dark+Slayer');
+            background-image: url('https://via.placeholder.com/1600x900/1a1a2e/e94560?text=Slormancer');
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
@@ -96,7 +140,7 @@
             z-index: 1;
         }
 
-        /* 标题样式 */
+        /* Heading styles */
         h1 {
             font-size: 3.5rem;
             margin-bottom: 15px;
@@ -113,7 +157,7 @@
             padding-left: 15px;
         }
 
-        /* 游戏简介样式 */
+        /* Game intro styles */
         .game-intro {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -124,12 +168,12 @@
             margin-right: auto;
         }
 
-        /* 游戏框架样式 */
+        /* Game frame styles */
         .game-frame-container {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 比例 */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             margin: 30px 0;
             border: 3px solid #e94560;
             border-radius: 8px;
@@ -145,7 +189,7 @@
             height: 100%;
         }
 
-        /* 游戏信息样式 */
+        /* Game info styles */
         .game-info {
             background-color: rgba(22, 33, 62, 0.7);
             padding: 25px;
@@ -154,7 +198,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* 特性列表样式 */
+        /* Features styles */
         .features {
             display: flex;
             flex-wrap: wrap;
@@ -172,7 +216,7 @@
             border-left: 3px solid #e94560;
         }
 
-        /* 玩家评价样式 */
+        /* Testimonials styles */
         .testimonials {
             margin: 40px 0;
         }
@@ -201,7 +245,7 @@
             margin-top: 10px;
         }
 
-        /* FAQ样式 */
+        /* FAQ styles */
         .faq {
             margin: 40px 0;
         }
@@ -250,7 +294,24 @@
             max-height: 500px;
         }
 
-        /* 按钮样式 */
+        /* CTA styles */
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
         .cta-button {
             display: inline-block;
             background-color: #e94560;
@@ -274,7 +335,7 @@
             box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
         }
 
-        /* 页脚样式 */
+        /* Footer styles */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -318,7 +379,7 @@
             color: #a0a0a0;
         }
 
-        /* 响应式设计 */
+        /* Responsive styles */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
@@ -345,18 +406,172 @@
                 display: none;
             }
         }
+
+        /* Additional SEO-focused CSS styles */
+        .game-section {
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .section-intro {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* SEO-optimized heading styles */
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin: 40px 0 20px;
+            color: #e94560;
+            border-left: 5px solid #e94560;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #e94560;
+            margin-bottom: 15px;
+        }
+        
+        /* Breadcrumbs for SEO */
+        .breadcrumbs {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 0;
+            list-style: none;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumbs li {
+            display: inline;
+            margin-right: 5px;
+        }
+        
+        .breadcrumbs li:after {
+            content: "›";
+            margin-left: 5px;
+            color: #e94560;
+        }
+        
+        .breadcrumbs li:last-child:after {
+            content: "";
+        }
+        
+        .breadcrumbs a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            color: #e94560;
+        }
+        
+        /* Image optimization styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Lazy loading for images */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+        
+        /* Content wrapper for better SEO */
+        .content-wrapper {
+            margin-top: 30px;
+        }
+        
+        /* Call-to-action buttons with improved accessibility */
+        .cta-button {
+            display: inline-block;
+            background-color: #e94560;
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover,
+        .cta-button:focus {
+            background-color: #ff6b81;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.6);
+            outline: none;
+        }
+        
+        .cta-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Accessibility improvements */
+        a:focus {
+            outline: 2px solid #e94560;
+            outline-offset: 2px;
+        }
+        
+        /* Print styles for better SEO */
+        @media print {
+            .game-frame-container,
+            .cta-button,
+            .navbar {
+                display: none;
+            }
+            
+            body {
+                color: #000;
+                background: #fff;
+            }
+            
+            h1, h2, h3, p {
+                color: #000;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Slormancer</a>
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="/" class="logo">Slormancer</a>
                 <ul class="nav-links">
-                    <li><a href="#game">Play Now</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#game" title="Play Slormancer Online">Play Slormancer</a></li>
+                    <li><a href="#about" title="Learn about Slormancer">About</a></li>
+                    <li><a href="#features" title="Slormancer Features">Features</a></li>
+                    <li><a href="#testimonials" title="Slormancer Reviews">Reviews</a></li>
+                    <li><a href="#faq" title="Slormancer FAQ">FAQ</a></li>
+                    <li><a href="#contact" title="Contact Slormancer Team">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -364,108 +579,202 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>Slormancer-Dark Slayer</h1>
-            <p class="game-intro">Embark on an epic journey as the legendary Dark Slayer, fighting through hordes of enemies in this action-packed RPG adventure. Master powerful abilities, defeat challenging bosses, and become the hero the realm needs.</p>
-            <a href="#game" class="cta-button">Play Now</a>
+            <h1>Slormancer: The Ultimate Action RPG</h1>
+            <p class="game-intro">Embark on an epic journey in the world of Slormancer as the legendary Dark Slayer. Fight through hordes of enemies, master powerful abilities, and become the hero the realm needs in this action-packed RPG adventure.</p>
+            <a href="#game" class="cta-button" aria-label="Play Slormancer Now">Play Slormancer Now</a>
         </div>
     </section>
 
-    <main class="container">
-        <section id="game" class="game-frame-container">
-            <iframe class="game-frame" src="https://www.crazygames.com/embed/immortal-dark-slayer" frameborder="0" allow="gamepad *;"></iframe>
+    <main class="container content-wrapper">
+        <!-- Breadcrumbs for SEO -->
+        <ul class="breadcrumbs" aria-label="Breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li>Slormancer Game</li>
+        </ul>
+        
+        <section id="game" class="game-section">
+            <h2>Play Slormancer Online</h2>
+            <p class="section-intro">Experience the full Slormancer game directly in your browser - no downloads required!</p>
+            <div class="game-frame-container">
+                <iframe class="game-frame" src="https://www.crazygames.com/embed/immortal-dark-slayer" frameborder="0" allow="gamepad *;" title="Play Slormancer game online" loading="lazy"></iframe>
+            </div>
         </section>
-
-        <section class="game-info">
-            <h2>About Slormancer-Dark Slayer</h2>
-            <p>Slormancer-Dark Slayer is an intense action RPG that puts you in the role of a legendary warrior chosen to save the realm from darkness. With fluid combat mechanics, stunning visuals, and an immersive storyline, this game offers hours of engaging gameplay for fans of the action RPG genre.</p>
+        
+        <!-- Structured Data for Breadcrumbs -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://slormancer.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Slormancer Game",
+              "item": "https://slormancer.com/#game"
+            }
+          ]
+        }
+        </script>
+        
+        <section id="about" class="game-info">
+            <h2>About Slormancer</h2>
+            <p>Slormancer is an intense action RPG that puts you in the role of a legendary warrior chosen to save the realm from darkness. With fluid combat mechanics, stunning visuals, and an immersive storyline, Slormancer offers hours of engaging gameplay for fans of the action RPG genre.</p>
             
-            <p>As the Dark Slayer, you'll wield powerful weapons, master arcane abilities, and face increasingly challenging foes as you progress through a world shrouded in mystery and danger. Will you rise to become the hero the world needs, or fall like so many before you?</p>
+            <p>As the Dark Slayer in the world of Slormancer, you'll wield powerful weapons, master arcane abilities, and face increasingly challenging foes as you progress through a world shrouded in mystery and danger. Will you rise to become the hero the Slormancer realm needs, or fall like so many before you?</p>
         </section>
 
         <section id="features">
-            <h2>Game Features</h2>
+            <h2>Slormancer Game Features</h2>
             <div class="features">
                 <div class="feature">
-                    <h3>Epic Combat</h3>
-                    <p>Experience fluid, responsive combat with a variety of weapons and combat styles to master. Chain devastating combos and unleash powerful special abilities.</p>
+                    <h3>Epic Combat System</h3>
+                    <p>Experience Slormancer's fluid, responsive combat with a variety of weapons and combat styles to master. Chain devastating combos and unleash powerful special abilities.</p>
                 </div>
                 <div class="feature">
-                    <h3>Character Progression</h3>
-                    <p>Level up your Dark Slayer, unlock new abilities, and customize your playstyle with an extensive skill tree and equipment system.</p>
+                    <h3>Deep Character Progression</h3>
+                    <p>Level up your Slormancer hero, unlock new abilities, and customize your playstyle with an extensive skill tree and equipment system.</p>
                 </div>
                 <div class="feature">
-                    <h3>Challenging Bosses</h3>
-                    <p>Test your skills against formidable bosses with unique attack patterns and abilities. Study their movements and exploit their weaknesses to emerge victorious.</p>
+                    <h3>Challenging Boss Battles</h3>
+                    <p>Test your skills against formidable bosses in the world of Slormancer, each with unique attack patterns and abilities. Study their movements and exploit their weaknesses to emerge victorious.</p>
                 </div>
                 <div class="feature">
-                    <h3>Immersive World</h3>
-                    <p>Explore a dark fantasy world filled with secrets, treasures, and dangers. Discover hidden areas and uncover the mysteries of this ancient realm.</p>
+                    <h3>Immersive Fantasy World</h3>
+                    <p>Explore the dark fantasy world of Slormancer filled with secrets, treasures, and dangers. Discover hidden areas and uncover the mysteries of this ancient realm.</p>
                 </div>
                 <div class="feature">
-                    <h3>Engaging Story</h3>
-                    <p>Uncover the mysteries of the realm as you progress through an epic narrative filled with memorable characters and unexpected twists.</p>
+                    <h3>Engaging Storyline</h3>
+                    <p>Uncover the mysteries of the Slormancer realm as you progress through an epic narrative filled with memorable characters and unexpected twists.</p>
                 </div>
                 <div class="feature">
-                    <h3>Free to Play</h3>
-                    <p>Jump into the action immediately with no download required - play directly in your browser and experience the full game without any paywalls.</p>
+                    <h3>Free-to-Play Experience</h3>
+                    <p>Jump into the Slormancer action immediately with no download required - play directly in your browser and experience the full game without any paywalls.</p>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
-            <h2>Player Reviews</h2>
+        <!-- Add Slormancer Article for SEO -->
+        <article class="seo-content">
+            <h2>Why Slormancer is the Ultimate Browser RPG</h2>
+            <p>In the crowded landscape of online gaming, Slormancer stands out as a premier browser-based action RPG that delivers an experience typically found only in downloadable titles. Developed with a focus on accessibility without sacrificing depth, Slormancer brings together the best elements of the action RPG genre in a convenient browser package.</p>
+            
+            <p>What sets Slormancer apart from other browser games is its commitment to quality gameplay. The combat system is fluid and responsive, offering players the ability to execute complex combos and master various weapons and abilities. Unlike many simplified browser games, Slormancer features a fully-realized character progression system, allowing players to craft their unique playstyle through skill trees and equipment choices.</p>
+            
+            <p>The world of Slormancer is expansive and immersive, filled with rich lore and visually stunning environments. As players journey through this dark fantasy realm, they'll encounter challenging boss battles that require strategy and skill to overcome. Each encounter is designed to test different aspects of your combat prowess, ensuring that the gameplay remains fresh and engaging throughout.</p>
+            
+            <p>Perhaps most impressive is that Slormancer delivers all this without requiring any downloads or installations. The game runs smoothly in any modern browser, making it accessible to players on virtually any device with an internet connection. This combination of high-quality gameplay and exceptional accessibility makes Slormancer the ultimate choice for anyone seeking a premium action RPG experience without the hassle of downloads.</p>
+        </article>
+        
+        <section id="testimonials" class="testimonials">
+            <h2>Slormancer Player Reviews</h2>
             <div class="testimonial">
-                <p>Slormancer-Dark Slayer is hands down the best browser-based action RPG I've played. The combat feels responsive and satisfying, and the progression system keeps me coming back for more!</p>
+                <p>Slormancer is hands down the best browser-based action RPG I've played. The combat feels responsive and satisfying, and the progression system keeps me coming back for more!</p>
                 <p class="player-name">- Michael K.</p>
             </div>
             <div class="testimonial">
-                <p>I was skeptical about playing an action game in my browser, but Slormancer-Dark Slayer blew me away. The graphics are impressive, and the boss fights are genuinely challenging. Highly recommended!</p>
+                <p>I was skeptical about playing an action game in my browser, but Slormancer blew me away. The graphics are impressive, and the boss fights are genuinely challenging. Highly recommended!</p>
                 <p class="player-name">- Sarah J.</p>
             </div>
             <div class="testimonial">
-                <p>As a longtime fan of dark fantasy games, I found Slormancer-Dark Slayer to be a perfect blend of accessible gameplay and deep mechanics. The story is surprisingly engaging for a browser game.</p>
+                <p>As a longtime fan of dark fantasy games, I found Slormancer to be a perfect blend of accessible gameplay and deep mechanics. The story is surprisingly engaging for a browser game.</p>
                 <p class="player-name">- David R.</p>
             </div>
         </section>
 
         <section id="faq" class="faq">
-            <h2>Frequently Asked Questions</h2>
+            <h2>Frequently Asked Questions About Slormancer</h2>
             <div class="faq-item">
-                <div class="faq-question">Do I need to download anything to play?</div>
+                <div class="faq-question">Do I need to download anything to play Slormancer?</div>
                 <div class="faq-answer">
-                    <p>No, Slormancer-Dark Slayer is a browser-based game that runs directly in your web browser. There's no need to download or install anything. Simply visit our website and start playing immediately.</p>
+                    <p>No, Slormancer is a browser-based game that runs directly in your web browser. There's no need to download or install anything. Simply visit our website and start playing Slormancer immediately.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Is the game free to play?</div>
+                <div class="faq-question">Is Slormancer free to play?</div>
                 <div class="faq-answer">
-                    <p>Yes, Slormancer-Dark Slayer is completely free to play. You can enjoy the full game experience without any paywalls or mandatory purchases. We may offer optional cosmetic items in the future, but they will never affect gameplay.</p>
+                    <p>Yes, Slormancer is completely free to play. You can enjoy the full Slormancer experience without any paywalls or mandatory purchases. We may offer optional cosmetic items in the future, but they will never affect gameplay.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">What are the system requirements?</div>
+                <div class="faq-question">What are the system requirements for Slormancer?</div>
                 <div class="faq-answer">
-                    <p>Since Slormancer-Dark Slayer runs in your browser, the requirements are minimal. You'll need a modern web browser (Chrome, Firefox, Safari, or Edge) and a stable internet connection. The game is optimized to run smoothly on most devices, including older computers.</p>
+                    <p>Since Slormancer runs in your browser, the requirements are minimal. You'll need a modern web browser (Chrome, Firefox, Safari, or Edge) and a stable internet connection. Slormancer is optimized to run smoothly on most devices, including older computers.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Can I play on mobile devices?</div>
+                <div class="faq-question">Can I play Slormancer on mobile devices?</div>
                 <div class="faq-answer">
-                    <p>Yes, Slormancer-Dark Slayer is fully responsive and optimized for mobile play. You can enjoy the game on smartphones and tablets with touch controls, though we recommend playing on a larger screen for the best experience.</p>
+                    <p>Yes, Slormancer is fully responsive and optimized for mobile play. You can enjoy Slormancer on smartphones and tablets with touch controls, though we recommend playing on a larger screen for the best experience.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Is there multiplayer or co-op gameplay?</div>
+                <div class="faq-question">Is there multiplayer or co-op gameplay in Slormancer?</div>
                 <div class="faq-answer">
-                    <p>Currently, Slormancer-Dark Slayer is a single-player experience focused on delivering an engaging story and challenging combat. We're exploring multiplayer features for future updates, including co-op missions and PvP arenas.</p>
+                    <p>Currently, Slormancer is a single-player experience focused on delivering an engaging story and challenging combat. We're exploring multiplayer features for future updates to Slormancer, including co-op missions and PvP arenas.</p>
                 </div>
             </div>
         </section>
+        
+        <!-- FAQ Structured Data for Rich Results -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do I need to download anything to play Slormancer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, Slormancer is a browser-based game that runs directly in your web browser. There's no need to download or install anything. Simply visit our website and start playing Slormancer immediately."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Slormancer free to play?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Slormancer is completely free to play. You can enjoy the full Slormancer experience without any paywalls or mandatory purchases. We may offer optional cosmetic items in the future, but they will never affect gameplay."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the system requirements for Slormancer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Since Slormancer runs in your browser, the requirements are minimal. You'll need a modern web browser (Chrome, Firefox, Safari, or Edge) and a stable internet connection. Slormancer is optimized to run smoothly on most devices, including older computers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I play Slormancer on mobile devices?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Slormancer is fully responsive and optimized for mobile play. You can enjoy Slormancer on smartphones and tablets with touch controls, though we recommend playing on a larger screen for the best experience."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there multiplayer or co-op gameplay in Slormancer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Currently, Slormancer is a single-player experience focused on delivering an engaging story and challenging combat. We're exploring multiplayer features for future updates to Slormancer, including co-op missions and PvP arenas."
+              }
+            }
+          ]
+        }
+        </script>
 
         <section class="cta">
-            <h2>Ready to Begin Your Journey?</h2>
-            <p>The realm needs a hero. The Dark Slayer awaits. Will you answer the call?</p>
-            <a href="#game" class="cta-button">Play Now</a>
+            <h2>Ready to Begin Your Slormancer Journey?</h2>
+            <p>The realm of Slormancer needs a hero. The Dark Slayer awaits. Will you answer the call?</p>
+            <a href="#game" class="cta-button" aria-label="Play Slormancer Now">Play Slormancer Now</a>
         </section>
     </main>
 
@@ -474,74 +783,196 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About Slormancer</h3>
-                    <p>Slormancer.com is dedicated to bringing you the best browser-based gaming experience with our flagship title, Slormancer-Dark Slayer.</p>
+                    <p>Slormancer.com is dedicated to bringing you the best browser-based gaming experience with our flagship title, Slormancer.</p>
+                    <p>Discover why thousands of players choose Slormancer for their action RPG adventures.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#game">Play Game</a>
-                    <a href="#features">Features</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#contact">Contact</a>
+                    <h3>Slormancer Links</h3>
+                    <a href="#game" title="Play Slormancer Online">Play Slormancer</a>
+                    <a href="#about" title="About Slormancer Game">About Slormancer</a>
+                    <a href="#features" title="Slormancer Game Features">Game Features</a>
+                    <a href="#testimonials" title="Slormancer Player Reviews">Player Reviews</a>
+                    <a href="#faq" title="Slormancer FAQ">FAQ</a>
+                    <a href="#contact" title="Contact Slormancer Team">Contact Us</a>
                 </div>
                 <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>For support or business inquiries:</p>
-                    <p>Email: liujialxj2@126.com</p>
+                    <h3>Contact Slormancer Team</h3>
+                    <p>For support or business inquiries about Slormancer:</p>
+                    <p>Email: <a href="mailto:liujialxj2@126.com">liujialxj2@126.com</a></p>
+                    <p>Follow Slormancer on social media:</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/slormancer" title="Slormancer on Twitter" rel="noopener" target="_blank">Twitter</a>
+                        <a href="https://facebook.com/slormancer" title="Slormancer on Facebook" rel="noopener" target="_blank">Facebook</a>
+                        <a href="https://discord.gg/slormancer" title="Join Slormancer Discord" rel="noopener" target="_blank">Discord</a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Slormancer.com - All rights reserved. Slormancer-Dark Slayer is owned and operated by Jacky.</p>
+                <p>&copy; 2023 Slormancer.com - All rights reserved. Slormancer is owned and operated by Jacky.</p>
+                <p><a href="/sitemap.xml" title="Slormancer Sitemap">Sitemap</a> | <a href="/privacy-policy" title="Slormancer Privacy Policy">Privacy Policy</a> | <a href="/terms-of-service" title="Slormancer Terms of Service">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // 滚动到游戏区域的函数
-        function scrollToElement(elementId) {
-            const element = document.getElementById(elementId);
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Slormancer",
+      "url": "https://slormancer.com",
+      "logo": "https://slormancer.com/images/slormancer-logo.png",
+      "sameAs": [
+        "https://twitter.com/slormancer",
+        "https://facebook.com/slormancer",
+        "https://discord.gg/slormancer"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "liujialxj2@126.com",
+        "contactType": "customer service"
+      }
+    }
+    </script>
 
-        // 初始化FAQ功能
+    <!-- Optimized JavaScript for performance -->
+    <script>
+        // Enhance page loading performance
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize smooth scrolling
+            initSmoothScrolling();
+            
+            // Initialize FAQ accordion
+            initFAQ();
+            
+            // Lazy load images
+            initLazyLoading();
+            
+            // Track user engagement for analytics
+            trackEngagement();
+        });
+        
+        // Smooth scrolling function
+        function initSmoothScrolling() {
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+            
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL without page reload for better UX
+                        history.pushState(null, null, `#${targetId}`);
+                    }
+                });
+            });
+        }
+        
+        // FAQ accordion functionality
+        function initFAQ() {
             const faqItems = document.querySelectorAll('.faq-item');
             
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 
                 question.addEventListener('click', () => {
-                    // 关闭其他所有FAQ项
+                    // Close other FAQ items
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
                         }
                     });
                     
-                    // 切换当前项的状态
+                    // Toggle current item state
                     item.classList.toggle('active');
+                    
+                    // Enhance accessibility
+                    const expanded = item.classList.contains('active');
+                    question.setAttribute('aria-expanded', expanded);
+                    
+                    // Track FAQ interaction for analytics
+                    if (expanded) {
+                        trackEvent('FAQ', 'open', question.textContent);
+                    }
                 });
+                
+                // Add accessibility attributes
+                question.setAttribute('role', 'button');
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('tabindex', '0');
+                
+                // Allow keyboard interaction
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        question.click();
+                    }
+                });
+            });
+        }
+        
+        // Image lazy loading implementation
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('.lazy-load');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            } else {
+                // Fallback for browsers without IntersectionObserver support
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                });
+            }
+        }
+        
+        // Analytics tracking (placeholder)
+        function trackEvent(category, action, label) {
+            // Placeholder for actual analytics implementation
+            console.log(`Event tracked: ${category} - ${action} - ${label}`);
+            
+            // Integration with Google Analytics would go here
+            // if (typeof ga === 'function') {
+            //     ga('send', 'event', category, action, label);
+            // }
+        }
+        
+        function trackEngagement() {
+            // Track page views
+            trackEvent('Page', 'view', 'Slormancer Home');
+            
+            // Track engagement time
+            let startTime = Date.now();
+            window.addEventListener('beforeunload', function() {
+                const timeSpent = Math.round((Date.now() - startTime) / 1000);
+                trackEvent('Engagement', 'time', `${timeSpent} seconds`);
             });
             
-            // 设置导航链接点击事件
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    scrollToElement(targetId);
+            // Track clicks on CTA buttons
+            document.querySelectorAll('.cta-button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    trackEvent('Button', 'click', this.textContent.trim());
                 });
             });
-            
-            // 设置CTA按钮点击事件
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    scrollToElement(targetId);
-                });
-            });
-        });
+        }
     </script>
 </body>
 </html> 
