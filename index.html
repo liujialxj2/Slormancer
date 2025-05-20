@@ -794,6 +794,26 @@
                 font-size: 1.3rem;
             }
         }
+
+        header, .navbar, .logo, .nav-links a {
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+        }
+        header.shrink .navbar {
+            min-height: 32px !important;
+            padding: 0 10px !important;
+        }
+        header.shrink .logo {
+            font-size: 1.0rem !important;
+            letter-spacing: 1px !important;
+            text-shadow: 0 0 6px #e94560, 0 0 12px #ffb347;
+        }
+        header.shrink .nav-links a {
+            font-size: 0.92rem !important;
+            padding: 4px 0 !important;
+        }
+        header.shrink .nav-links {
+            gap: 10px !important;
+        }
     </style>
 </head>
 <body>
@@ -1142,6 +1162,18 @@
                 });
             });
         }
+
+        // 导航栏智能收缩
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 60) {
+                    header.classList.add('shrink');
+                } else {
+                    header.classList.remove('shrink');
+                }
+            });
+        });
     </script>
 </body>
 </html> 
