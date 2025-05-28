@@ -73,6 +73,7 @@
 
         /* Base styles */
         body {
+            padding-top: 48px; /* 根据header高度调整 */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
@@ -95,11 +96,18 @@
             background: linear-gradient(90deg, #181828 60%, #1a1a2e 100%);
             box-shadow: 0 2px 12px rgba(0,0,0,0.12);
             border-bottom: 3px solid #e94560;
-            position: sticky;
+            position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
+            transition: transform 0.3s ease;
         }
+        
+        /* 添加一个类用于隐藏header */
+        header.hidden {
+            transform: translateY(-100%);
+        }
+        
         .navbar {
             max-width: 1200px;
             margin: 0 auto;
@@ -239,6 +247,34 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .fullscreen-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 20;
+            background: rgba(26,26,46,0.85);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.5rem;
+            padding: 8px 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(233,69,96,0.18);
+            transition: background 0.2s;
+        }
+        .fullscreen-btn:hover, .fullscreen-btn:active {
+            background: #e94560;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .fullscreen-btn {
+                font-size: 1.2rem;
+                padding: 7px 10px;
+                top: 8px;
+                right: 8px;
+            }
         }
 
         .game-frame {
@@ -827,6 +863,368 @@
         header.shrink .nav-links {
             gap: 10px !important;
         }
+
+        /* 添加返回顶部按钮样式 */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #e94560, #ff6b81);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(233, 69, 96, 0.5);
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.7);
+        }
+
+        /* 移动端导航菜单样式 */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #e94560;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .mobile-nav-links li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav-links a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a:focus {
+            color: #e94560;
+            border-left: 3px solid #e94560;
+            background: rgba(233, 69, 96, 0.1);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .footer-section {
+                flex-basis: 100%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            /* 调整hero区域在移动端的内边距 */
+            .hero {
+                padding: 60px 0;
+            }
+            
+            /* 调整游戏介绍文字大小 */
+            .game-intro {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            
+            /* 调整特性卡片的内边距 */
+            .feature {
+                padding: 20px;
+            }
+            
+            /* 调整FAQ问题的字体大小 */
+            .faq-question {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+            
+            /* 调整移动端CTA按钮大小 */
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 添加更小屏幕的媒体查询 */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                padding-left: 10px;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            .game-intro {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .feature {
+                padding: 15px;
+            }
+            
+            .feature h3::before {
+                font-size: 1.2rem;
+            }
+            
+            .testimonial {
+                padding: 20px;
+            }
+            
+            .testimonial::before {
+                font-size: 4rem;
+            }
+            
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 12px 15px;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 12px 15px 15px 30px;
+            }
+            
+            .cta {
+                padding: 25px 15px;
+            }
+            
+            .cta h2 {
+                font-size: 1.5rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .back-to-top {
+                width: 35px;
+                height: 35px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* 游戏框架移动端优化 */
+        .landscape-notice {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 46, 0.9);
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .landscape-notice .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: rotate 2s infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            50% { transform: rotate(90deg); }
+            75% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .landscape-notice p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .landscape-notice .highlight {
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) and (orientation: portrait) {
+            .landscape-notice {
+                display: flex;
+            }
+        }
+
+        /* 优化图片加载 */
+        .lazy-image {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lazy-image.loaded {
+            opacity: 1;
+        }
+
+        /* 移动端触摸优化 */
+        @media (hover: none) {
+            .cta-button:active {
+                transform: translateY(2px);
+                box-shadow: 0 2px 10px rgba(233, 69, 96, 0.5);
+            }
+            
+            .feature:active {
+                transform: translateY(2px);
+                box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            }
+            
+            .back-to-top:active {
+                transform: translateY(2px);
+            }
+            
+            .mobile-nav-links a:active {
+                background: rgba(233, 69, 96, 0.2);
+            }
+            
+            /* 增加触摸区域大小 */
+            .faq-question {
+                min-height: 44px;
+            }
+            
+            .nav-links a,
+            .mobile-nav-links a,
+            .footer-section a {
+                padding: 12px 0;
+            }
+            
+            .social-links a {
+                padding: 10px;
+                margin: 0 5px;
+            }
+        }
+        
+        /* 优化移动端表单元素 */
+        input, select, textarea, button {
+            font-size: 16px; /* 防止iOS自动缩放 */
+        }
     </style>
 </head>
 <body>
@@ -834,6 +1232,11 @@
         <div class="container">
             <nav class="navbar" aria-label="Main navigation">
                 <div class="logo"><span class="logo-text">Slormancer</span></div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#game" title="Play Slormancer Online">Play Now</a></li>
                     <li><a href="#about" title="Learn about Slormancer">About</a></li>
@@ -845,6 +1248,19 @@
             </nav>
         </div>
     </header>
+
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#game" title="Play Slormancer Online">Play Now</a></li>
+            <li><a href="#about" title="Learn about Slormancer">About</a></li>
+            <li><a href="#features" title="Slormancer Features">Features</a></li>
+            <li><a href="#testimonials" title="Slormancer Reviews">Reviews</a></li>
+            <li><a href="#faq" title="Slormancer FAQ">FAQ</a></li>
+            <li><a href="#contact" title="Contact Slormancer Team">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="overlay"></div>
 
     <section class="hero">
         <div class="container hero-content">
@@ -859,7 +1275,8 @@
             <h2>Play Slormancer Online</h2>
             <p class="section-intro">Experience the full Slormancer game directly in your browser - no downloads required!</p>
             <div class="game-frame-container">
-                <iframe class="game-frame" src="https://www.crazygames.com/embed/immortal-dark-slayer" frameborder="0" allow="gamepad *;" title="Play Slormancer game online" loading="lazy"></iframe>
+                <button class="fullscreen-btn" title="全屏游戏" aria-label="全屏游戏">⛶</button>
+                <iframe class="game-frame" src="https://frayfight.com/game/desktop/index.html" frameborder="0" allow="gamepad *;" title="Play Slormancer game online" loading="lazy"></iframe>
             </div>
         </section>
         
@@ -902,7 +1319,7 @@
 
         <article class="seo-content enhanced-seo-content vertical">
           <div class="seo-header">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Slormancer Fantasy Art" />
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMGYzNDYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZmlsbD0iI2ZmZiI+TG9hZGluZy4uLjwvdGV4dD48L3N2Zz4=" data-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Slormancer Fantasy Art" class="lazy-image" />
             <h2>
               <span class="seo-icon">🌟</span>
               Why Slormancer is the Ultimate Browser RPG
@@ -1064,6 +1481,9 @@
     }
     </script>
 
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top" title="返回顶部">↑</a>
+
     <!-- Optimized JavaScript for performance -->
     <script>
         // Enhance page loading performance
@@ -1122,7 +1542,7 @@
         
         // Image lazy loading implementation
         function initLazyLoading() {
-            const lazyImages = document.querySelectorAll('.lazy-load');
+            const lazyImages = document.querySelectorAll('.lazy-image');
             
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries) => {
@@ -1136,9 +1556,11 @@
                     });
                 });
                 
-                lazyImages.forEach(img => imageObserver.observe(img));
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
             } else {
-                // Fallback for browsers without IntersectionObserver support
+                // 兼容不支持IntersectionObserver的浏览器
                 lazyImages.forEach(img => {
                     img.src = img.dataset.src;
                     img.classList.add('loaded');
@@ -1178,14 +1600,189 @@
 
         // 导航栏智能收缩
         document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const overlay = document.querySelector('.overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+            let lastScrollTop = 0;
+            
+            // 添加触摸反馈
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('touchstart', function() {
+                    this.style.transition = 'transform 0.1s ease';
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                el.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // 图片延迟加载
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // 兼容不支持IntersectionObserver的浏览器
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                });
+            }
+            
+            // 检测设备方向变化
+            window.addEventListener('orientationchange', function() {
+                const landscapeNotice = document.querySelector('.landscape-notice');
+                if (landscapeNotice) {
+                    if (window.orientation === 90 || window.orientation === -90) {
+                        landscapeNotice.style.display = 'none';
+                    } else {
+                        landscapeNotice.style.display = 'flex';
+                    }
+                }
+            });
+            
+            // 移动端菜单切换
+            mobileMenuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // 点击遮罩层关闭菜单
+            overlay.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // 点击导航链接关闭菜单
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
             window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 60) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // 当滚动超过100px时才开始判断
+                if (scrollTop > 100) {
+                    // 向下滚动时隐藏
+                    if (scrollTop > lastScrollTop) {
+                        header.classList.add('hidden');
+                    } 
+                    // 向上滚动时显示
+                    else {
+                        header.classList.remove('hidden');
+                    }
+                    
+                    // 显示返回顶部按钮
+                    backToTop.classList.add('visible');
+                } else {
+                    // 在页面顶部时始终显示
+                    header.classList.remove('hidden');
+                    
+                    // 隐藏返回顶部按钮
+                    backToTop.classList.remove('visible');
+                }
+                
+                lastScrollTop = scrollTop;
+                
+                // 收缩效果保留
+                if (scrollTop > 60) {
                     header.classList.add('shrink');
                 } else {
                     header.classList.remove('shrink');
                 }
             });
+            
+            // 返回顶部功能
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 全屏按钮功能
+            const fullscreenBtn = document.querySelector('.fullscreen-btn');
+            const gameFrameContainer = document.querySelector('.game-frame-container');
+            const gameFrame = document.querySelector('.game-frame');
+            function isFullscreen() {
+                return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+            }
+            function requestFullscreen(element) {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+            }
+            function exitFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+            if(fullscreenBtn && gameFrameContainer) {
+                fullscreenBtn.addEventListener('click', function() {
+                    if (!isFullscreen()) {
+                        requestFullscreen(gameFrameContainer);
+                        fullscreenBtn.innerText = '⤫';
+                        setTimeout(() => {
+                            // 移动端自动横屏提示
+                            if (window.innerWidth < 900 && window.screen.orientation && window.screen.orientation.lock) {
+                                window.screen.orientation.lock('landscape').catch(()=>{});
+                            }
+                        }, 500);
+                    } else {
+                        exitFullscreen();
+                    }
+                });
+                function toggleFullscreenBtn() {
+                    if (!isFullscreen()) {
+                        fullscreenBtn.innerText = '⛶';
+                    } else {
+                        fullscreenBtn.innerText = '⤫';
+                    }
+                }
+                document.addEventListener('fullscreenchange', toggleFullscreenBtn, false);
+                document.addEventListener('webkitfullscreenchange', toggleFullscreenBtn, false);
+                document.addEventListener('mozfullscreenchange', toggleFullscreenBtn, false);
+                document.addEventListener('MSFullscreenChange', toggleFullscreenBtn, false);
+            }
         });
     </script>
 </body>
